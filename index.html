@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8">
+  <title>Quiz Pro-Social</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #e3f2fd, #fce4ec);
+      padding: 40px;
+      color: #333;
+    }
+
+    h1 {
+      text-align: center;
+      color: #6a1b9a;
+      margin-bottom: 30px;
+      text-shadow: 1px 1px 2px #aaa;
+    }
+
+    .question {
+      background: #ffffffcc;
+      border: 2px solid #ce93d8;
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 25px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      animation: fadeInUp 0.7s ease both;
+    }
+
+    button {
+      display: block;
+      margin: 30px auto;
+      padding: 12px 30px;
+      background-color: #ba68c8;
+      color: white;
+      border: none;
+      border-radius: 20px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      animation: fadeInUp 1s ease both;
+    }
+
+    button:hover {
+      background-color: #9c27b0;
+    }
+
+    #rezultat {
+      text-align: center;
+      margin-top: 30px;
+      font-size: 20px;
+      font-weight: bold;
+      color: #4a148c;
+      animation: fadeInUp 1s ease both;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div id="start-screen" style="text-align:center; padding: 100px;">
+    <h1 style="color: #6a1b9a;">Bine ai venit la Quiz-ul Pro-Social!</h1>
+    <p style="font-size: 18px; margin: 20px 0;">Află cât de pro-social(ă) ești printr-un quiz rapid și interesant.</p>
+    <button onclick="incepeQuizul()" style="font-size: 18px;">Începe quiz-ul</button>
+  </div>
+
+  <div id="quiz-container" style="display: none;">
+    <h1>Quiz: Ai un comportament pro-social?</h1>
+    <form id="quizForm">
+
+      <div class="question">
+        <p>1. Îți place să ajuți oamenii fără să aștepți ceva în schimb?</p>
+        <label><input type="radio" name="q1" value="3"> Da, de fiecare dată</label><br>
+        <label><input type="radio" name="q1" value="2"> Doar uneori</label><br>
+        <label><input type="radio" name="q1" value="1"> Nu prea</label>
+      </div>
+
+
+      <div class="question">
+        <p>2. Cum reacționezi când cineva are nevoie de ajutor?</p>
+        <label><input type="radio" name="q2" value="3"> Ofer imediat sprijin</label><br>
+        <label><input type="radio" name="q2" value="2"> Mă gândesc dacă pot</label><br>
+        <label><input type="radio" name="q2" value="1"> Evit situația</label>
+      </div>
+
+
+      <div class="question">
+        <p>3. Îți pasă de cum se simt ceilalți?</p>
+        <label><input type="radio" name="q3" value="3"> Da, mereu</label><br>
+        <label><input type="radio" name="q3" value="2"> Uneori</label><br>
+        <label><input type="radio" name="q3" value="1"> Rar sau niciodată</label>
+      </div>
+
+
+      <div class="question">
+        <p>4. Îți oferi ajutorul fără să ți se ceară?</p>
+        <label><input type="radio" name="q4" value="3"> Da, spontan</label><br>
+        <label><input type="radio" name="q4" value="2"> Doar dacă am timp</label><br>
+        <label><input type="radio" name="q4" value="1"> Nu prea</label>
+      </div>
+
+
+      <div class="question">
+        <p>5. Cum reacționezi când cineva este trist?</p>
+        <label><input type="radio" name="q5" value="3"> Îl încurajez și îi sunt alături</label><br>
+        <label><input type="radio" name="q5" value="2"> Îi spun să nu mai fie trist</label><br>
+        <label><input type="radio" name="q5" value="1"> Îl evit</label>
+      </div>
+
+
+      <div class="question">
+        <p>6. Îți recunoști greșelile?</p>
+        <label><input type="radio" name="q6" value="3"> Da, și încerc să le repar</label><br>
+        <label><input type="radio" name="q6" value="2"> Uneori</label><br>
+        <label><input type="radio" name="q6" value="1"> Nu</label>
+      </div>
+
+
+      <div class="question">
+        <p>7. Îți place să lucrezi în echipă?</p>
+        <label><input type="radio" name="q7" value="3"> Da, mult</label><br>
+        <label><input type="radio" name="q7" value="2"> Depinde de echipă</label><br>
+        <label><input type="radio" name="q7" value="1"> Prefer singur(ă)</label>
+      </div>
+
+
+      <div class="question">
+        <p>8. Cum te porți cu colegii noi?</p>
+        <label><input type="radio" name="q8" value="3"> Îi primesc cu prietenie</label><br>
+        <label><input type="radio" name="q8" value="2"> Sunt neutru(ă)</label><br>
+        <label><input type="radio" name="q8" value="1"> Evit să vorbesc cu ei</label>
+      </div>
+
+
+      <div class="question">
+        <p>9. Cum reacționezi când cineva face o greșeală?</p>
+        <label><input type="radio" name="q9" value="3"> Îl ajut să se corecteze</label><br>
+        <label><input type="radio" name="q9" value="2"> Îi spun ce a greșit</label><br>
+        <label><input type="radio" name="q9" value="1"> Râd de el/ea</label>
+      </div>
+
+
+      <div class="question">
+        <p>10. Îți place să asculți problemele altora?</p>
+        <label><input type="radio" name="q10" value="3"> Da, sunt un bun ascultător</label><br>
+        <label><input type="radio" name="q10" value="2"> Doar când am timp</label><br>
+        <label><input type="radio" name="q10" value="1"> Nu mă interesează</label>
+      </div>
+
+      <button type="button" onclick="calculeazaRezultatul()">Vezi rezultatul</button>
+    </form>
+    <div id="rezultat"></div>
+  </div>
+
+  <script>
+    function incepeQuizul() {
+      document.getElementById("start-screen").style.display = "none";
+      document.getElementById("quiz-container").style.display = "block";
+    }
+
+    function calculeazaRezultatul() {
+      let scor = 0;
+      for (let i = 1; i <= 10; i++) {
+        let raspuns = document.querySelector('input[name="q' + i + '"]:checked');
+        if (raspuns) {
+          scor += parseInt(raspuns.value);
+        }
+      }
+
+      let mesaj = "";
+      if (scor >= 25) {
+        mesaj = "💜 Ai un comportament pro-social excelent!";
+      } else if (scor >= 17) {
+        mesaj = "😊 Ai tendințe pro-sociale, dar mai e loc de îmbunătățiri.";
+      } else {
+        mesaj = "🤔 Poți lucra mai mult la comportamentul tău pro-social.";
+      }
+
+      document.getElementById("rezultat").innerText = "Scorul tău: " + scor + "/30
+" + mesaj;
+    }
+  </script>
+</body>
+</html>
